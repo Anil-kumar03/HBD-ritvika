@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Celebration</title>
+    <!-- Google Fonts: Pacifico for headings, and a friendly sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        background: linear-gradient(120deg, #ffe0e9 0%, #fff7c2 100%);
+        position: relative;
+        overflow-x: hidden;
+    }
+    .confetti {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+    }
+    .location-card {
+        background: #fff7c2;
+        border-radius: 24px;
+        box-shadow: 0 4px 24px #ffe0e9;
+        padding: 2.5rem 2rem;
+        margin: 2.5rem auto;
+        max-width: 600px;
+        min-width: 320px;
+        text-align: center;
+        position: relative;
+        font-size: 1.25rem;
+    }
+    .location-icon {
+        width: 64px; height: 64px; color: #ff69b4; margin-bottom: 0.75rem;
+    }
+    .location-name a {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1.3;
+    }
+    .event-date {
+        font-size: 1.25rem;
+    }
+    @media (max-width: 700px) {
+      .location-card { max-width: 98vw; padding: 1.2rem 0.5rem; font-size: 1.05rem; }
+      .location-icon { width: 48px; height: 48px; }
+      .location-name a { font-size: 1.1rem; }
+      .event-date { font-size: 1.05rem; }
+    }
+    .location-icon {
+        width: 48px; height: 48px; color: #ff69b4; margin-bottom: 0.5rem;
+        animation: bounce 1.2s infinite alternate;
+    }
+    @keyframes bounce {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-12px); }
+    }
+    .location-name a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+    .location-name a:hover {
+        color: #ffd700;
+    }
+    .event-date {
+        color: #ff69b4;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+        animation: pulse 1.5s infinite alternate;
+    }
+    @keyframes pulse {
+        0% { color: #ff69b4; }
+        100% { color: #ffd700; }
+    }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <canvas class="confetti"></canvas>
+    <!-- Main Navigation Bar -->
+    <nav class="navbar" style="background: linear-gradient(90deg, #ffb6c1 0%, #ffd700 100%); box-shadow: 0 2px 8px #ffe0e9;">
+        <div class="nav-brand"><i class="fas fa-birthday-cake"></i> First Birthday <i class="fas fa-balloon" style="color:#ff69b4; animation: bounce 1.2s infinite alternate;"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Simple Carousel Below Navbar -->
+    <div class="carousel-container">
+        <button class="carousel-arrow left" aria-label="Previous">&#8592;</button>
+        <div class="carousel-slide">
+            <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387225/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.38_f2740d13_ul4fic.jpg" alt="Birthday 1" class="carousel-img" style="display:block;">
+            <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387223/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.39_be455d24_wbo2du.jpg" alt="Birthday 2" class="carousel-img" style="display:none;">
+            <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387221/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.37_687e025c_o3xxwy.jpg" alt="Birthday 3" class="carousel-img" style="display:none;">
+        </div>
+        <button class="carousel-arrow right" aria-label="Next">&#8594;</button>
+    </div>
+    <style>
+    .carousel-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 2.5rem auto 0 auto;
+        max-width: 700px;
+        background: #fff7c2;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px #ffe0e9;
+        padding: 1rem 2rem;
+    }
+    .carousel-slide {
+        width: 540px;
+        height: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+    .carousel-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px #ffd70044;
+        position: absolute;
+        left: 0; top: 0;
+        transition: opacity 0.4s;
+    }
+    @media (max-width: 800px) {
+      .carousel-container { max-width: 98vw; padding: 0.5rem; }
+      .carousel-slide { width: 95vw; max-width: 98vw; height: 220px; }
+    }
+    @media (max-width: 600px) {
+      .carousel-slide { width: 98vw; height: 140px; }
+    }
+    .carousel-arrow {
+        background: #ff69b4;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 1px 4px #ffd70044;
+        transition: background 0.2s;
+    }
+    .carousel-arrow:hover {
+        background: #ffd700;
+        color: #ff69b4;
+    }
+    </style>
+
+    <main>
+        <!-- Contact Page Section -->
+        <section class="section-padding slide-in-bottom">
+            <h2 class="section-title font-pacifico">Join Us in the Celebration</h2>
+            <p style="text-align:center; font-size:1.3rem; margin: 0 0 0.5rem 0; color:#ff69b4; font-family: 'Quicksand', Arial, sans-serif; font-weight:bold; text-shadow: 0 2px 8px #fff, 0 0 4px #ffd700; letter-spacing: 1px;" class="quote">
+                "Your Attendence is very important for me and my family<br>
+                When you come to me, say "Present Miss" 😇
+                "
+            </p>
+            <p style="text-align:center; font-size:1.7rem; margin: 0 0 1.4rem 0; color:#00bfff; font-family: 'Pacifico', cursive; letter-spacing: 3px; text-shadow: 0 2px 8px #fff, 0 0 4px #ffd700; font-weight: bold;">
+                - Ritvika
+            </p>
+            <div class="contact-content">
+                <div class="location-card">
+                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.686 2 6 4.686 6 8s6 14 6 14s6-10.686 6-14s-2.686-6-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                    </svg>
+                    <div class="location-text">
+                        <p class="location-name">
+                            <a href="https://maps.app.goo.gl/tRvU1o57UAGydSfW6" target="_blank" style="color:#ff69b4; text-decoration:underline;">
+                                <i class="fas fa-map-marker-alt"></i> Ravila Grand Banquet Halls,<br>
+                                Madeenaguda, Hyderabad
+                            </a>
+                        </p>
+                        <p class="event-date">August 10th, 2025 (Sunday)</p>
+                        <p class="event-date" style="font-size: large;">Mobile: +91 76809 05709</p>
+                    </div>
+                </div>
+                <!-- You could add more contact info here like a phone number or email -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Common Footer -->
+    <footer>
+        <div class="footer-content" style="background: linear-gradient(90deg, #ffb6c1 0%, #ffd700 100%); border-radius: 12px; box-shadow: 0 2px 8px #ffe0e9; padding: 1rem; text-align:center;">
+            <p style="font-size:1.2rem; color:#ff698f;">
+                <i class="fas fa-birthday-cake"></i> Happy First Birthday to my dear Ritvika ❤️
+            </p>
+            <p style="color:#6e69ff">With love from <i class="fas fa-heart"></i> [Anju-Bharath]</p>
+            <!-- <p style="color:#ff69b4;"><i class="fas fa-map-marker-alt"></i> Ravila Grand Banquet Halls,<br>
+                                Madeenaguda, Hyderabad</p> -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Carousel Script -->
+    <script>
+    // Carousel logic with auto-scroll
+    (function() {
+        const images = document.querySelectorAll('.carousel-img');
+        const left = document.querySelector('.carousel-arrow.left');
+        const right = document.querySelector('.carousel-arrow.right');
+        let idx = 0;
+        let interval = null;
+        function show(idxToShow) {
+            images.forEach((img, i) => {
+                img.style.display = (i === idxToShow) ? 'block' : 'none';
+            });
+        }
+        function next() {
+            idx = (idx + 1) % images.length;
+            show(idx);
+        }
+        function prev() {
+            idx = (idx - 1 + images.length) % images.length;
+            show(idx);
+        }
+        left.addEventListener('click', function() {
+            prev();
+            resetInterval();
+        });
+        right.addEventListener('click', function() {
+            next();
+            resetInterval();
+        });
+        // Swipe support for mobile
+        let startX = null;
+        document.querySelector('.carousel-slide').addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+        document.querySelector('.carousel-slide').addEventListener('touchend', function(e) {
+            if (startX === null) return;
+            let endX = e.changedTouches[0].clientX;
+            if (endX - startX > 40) prev();
+            else if (startX - endX > 40) next();
+            resetInterval();
+            startX = null;
+        });
+        function resetInterval() {
+            if (interval) clearInterval(interval);
+            interval = setInterval(next, 2500);
+        }
+        // Start auto-scroll
+        show(idx);
+        interval = setInterval(next, 2500);
+    })();
+    </script>
+    <!-- Confetti Animation Script -->
+    <script>
+    // Simple confetti effect
+    const canvas = document.querySelector('.confetti');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let W = window.innerWidth;
+      let H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+      const confettiColors = ['#ff69b4','#ffd700','#98fb98','#b0e0e6','#ffb6c1','#fff7c2'];
+      const confetti = Array.from({length: 80}, () => ({
+        x: Math.random()*W,
+        y: Math.random()*H,
+        r: Math.random()*8+4,
+        d: Math.random()*W,
+        color: confettiColors[Math.floor(Math.random()*confettiColors.length)],
+        tilt: Math.random()*10-5,
+        tiltAngle: 0,
+        tiltAngleInc: Math.random()*0.07+0.05
+      }));
+      function drawConfetti() {
+        ctx.clearRect(0,0,W,H);
+        confetti.forEach(c => {
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+          ctx.fillStyle = c.color;
+          ctx.fill();
+        });
+        updateConfetti();
+      }
+      function updateConfetti() {
+        confetti.forEach(c => {
+          c.y += Math.cos(c.d) + 2 + c.r/2;
+          c.x += Math.sin(c.d);
+          c.tiltAngle += c.tiltAngleInc;
+          c.tilt = Math.sin(c.tiltAngle) * 8;
+          if (c.y > H) {
+            c.x = Math.random()*W;
+            c.y = -10;
+          }
+        });
+      }
+      setInterval(drawConfetti, 30);
+      window.addEventListener('resize', () => {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+      });
+    }
+    </script>
+    <audio id="contact-audio" src="./assets/birthday-song.mp3" preload="auto" autoplay style="display:none;"></audio>
+</body>
+<script>
+// Play hidden birthday audio automatically on page load
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('contact-audio');
+    if (audio) {
+        var playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function(){});
+        }
+    }
+});
+</script>
+</html>

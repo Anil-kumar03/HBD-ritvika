@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Journey</title>
+    <!-- Google Fonts: Pacifico for headings, and a friendly sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .section-title i {
+        animation: bounce 1.2s infinite alternate;
+    }
+    @keyframes bounce {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    .quote {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1.2s forwards;
+        animation-delay: 0.5s;
+        margin-bottom: 1rem;
+    }
+    .quote:nth-child(2) { animation-delay: 1s; }
+    .quote:nth-child(3) { animation-delay: 1.5s; }
+    @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .gallery-item img {
+        transition: transform 0.4s;
+    }
+    .gallery-item img:hover {
+        transform: scale(1.05) rotate(-2deg);
+        box-shadow: 0 4px 16px #ffe0e9;
+    }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">First Birthday</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <main >
+        <!-- About Page Section -->
+        <section class="section-padding slide-in-top">
+            <h2 class="section-title font-pacifico">A Beautiful Journey Begins</h2>
+            <div class="about-content">
+                <!-- Emotional Quotes -->
+                <p class="quote">"Namasthe Andhariki na peru Ritvika♥, bavundhi kadha peru😍,ma Amma nanna pettaru, naaku ithe chaala baaga nachhindhi☺.
+                "</p>
+                <p class="quote">"Nenu bavunnanu kadha ,mudhhosthunna kadha😚, mundhe chepthunna disti pettakanti champestha chepthunna, oye amma naaku mundhu disti theyyave😅
+                "</p>
+                <p class="quote">"Ma inti mahalaxmi🔱 nene anta , ma Amma rooju nannu ethhukoni chepthuu untadhi🤗.
+                "</p>
+                <p class="quote">"Oye amma, oye nanna ippudu na birthday🥳 chesthunnaru kadha pedhhaga ayyaka mi marriage day😍  grand ga chestha chudandi
+                "</p>
+                <p class="quote">"Na birthday roju, sai koti laaga📝 , Ritvika koti📖 rasukoni randi appude mi daggariki ostha😇 , ledante edustha🥲
+                "</p>
+                <p class="quote">"Monna ma Amma, ma nannki bangaram💰 konivvamante
+                Nannu ethhukoni , na bangaram nuvvenamma ani annadu, debbaki ma Amma silent ayipoyindhi😂
+                (Ante intlo nannu pettukoni Inka bangaram endhuku ani ma nanna feeling)
+                "</p>
+                <p class="quote">"Avunu inthaki ma family photos♥ chudaledhu kadha meeru, koncham scroll🖱 cheyyandi kanipisthai,na chinnapti photos kuda untai chuseyandi 😇
+                "</p>
+            </div>
+        </section>
+
+        <!-- More Photos Section -->
+        <section class="section-padding fade-in">
+            <h2 class="section-title font-pacifico">More Cherished Memories</h2>
+            <div class="gallery-column">
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754414167/Ritvika%27s%20birthday/WhatsApp_Video_2025-08-05_at_12.09.19_cec2d43f_-_frame_at_0m40s_evl029.jpg" alt="Baby's photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754460750/Ritvika%27s%20birthday/WhatsApp_Video_2025-08-05_at_12.09.19_cec2d43f.00_00_42_15.Still001_gxuocb.jpg" alt="Baby's photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387225/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.38_f2740d13_ul4fic.jpg" alt="Baby's photo">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Common Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-style-p">Happy First Birthday to my dear ❤️</p>
+            <p class="footer-style-p2">With love from [Parent Names]</p>
+          <a href="https://maps.app.goo.gl/tRvU1o57UAGydSfW6"> <p class="footer-style-p3">Location: [ Ravila Grand Banquet Halls,[Madeenaguda]</p></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <audio id="about-audio" src="./assets/nabangaru-kuna.mp3" preload="auto" autoplay style="display:none;"></audio>
+</body>
+<script>
+// Play hidden audio automatically on page load
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('about-audio');
+    if (audio) {
+        audio.play().catch(function(e) {
+            // Autoplay might be blocked by browser, optionally handle here
+        });
+    }
+});
+</script>
+</html>
